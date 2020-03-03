@@ -1,4 +1,7 @@
 {
    "prefix": "~",
-   "token": "NjgwNTAxOTM4MzExNTI4NzI5.XlA0-A.6bpIq3DRqlMJ0RrDWlgyXVPMQ40"
+   "token": "NjgwNTAxOTM4MzExNTI4NzI5.XlA0-A.6bpIq3DRqlMJ0RrDWlgyXVPMQ40",
+   "api": {
+      "tenor": "C0H2JEB5FDWC"
+   }
 }
