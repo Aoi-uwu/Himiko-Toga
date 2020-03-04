@@ -6,9 +6,10 @@ module.exports = {
    name: 'help',
    alias: 'h',
    usage: `${prefix}help [comando] [-nodm]`,
-   cat: 'test',
+   cat: 'Información',
    perms: [],
-   desc: `Mira los comandos disponibles.`,
+   desc: `Mira los comandos disponibles o la información de `+
+   `un comando específico.`,
    run: async (miku, msg, args) => {
       if (!args[0]) return help(miku, msg);
       if (args[0].toLowerCase() !== '-nodm' && !args[1])
@@ -29,7 +30,7 @@ function help(miku, msg, dm=true) {
       msg.guild.me.displayHexColor : msg.member.displayHexColor);
       for (let i = 0; i < arr.length; i++) {
          embed.addField(msg.guild.emojis.random(),
-         `\`${arr.toString().replace(/,/g, '\n')}\``, true);
+         `\`${arr[i].toString().replace(/,/g, '\n')}\``, true);
       }
       if (dm) {
          msg.reply('revisa tus DM\'s. uwu');

@@ -3,25 +3,25 @@ const { prefix, api } = require('../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
-   name: 'cry',
+   name: 'run',
    alias: '',
-   usage: `${prefix}cry`,
+   usage: `${prefix}run`,
    cat: 'Acción',
    perms: [],
    desc: `Pues... El mismo nombre lo indica.`,
    run: async (miku, msg, args) => {
-      fetch(`https://api.tenor.com/v1/search?q=anime%20cry&`+
+      fetch(`https://api.tenor.com/v1/search?q=anime%20run&`+
       `limit=10&key=${api.tenor}`, { method: "GET" })
       .then(res => res.json())
       .then(data => {
          var img = data.results[Math.floor(Math.random() *
             data.results.length)].media[0].gif.url;
          var color = msg.member.displayHexColor === '#000000' ?
-         '#66C0E8' : [msg.member.displayHexColor, '#66C0E8'][
+         '#CC5151' : [msg.member.displayHexColor, '#CC5151'][
             Math.floor(Math.random() * 2)
          ];
          const embed = new RichEmbed()
-         .setAuthor(`${msg.author.username} está llorando.`,
+         .setAuthor(`${msg.author.username} está corriendo.`,
             msg.author.displayAvatarURL)
          .setImage(img)
          .setColor(color);
