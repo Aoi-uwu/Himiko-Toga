@@ -1,0 +1,14 @@
+const { RichEmbed } = require('discord.js');
+const { prefix } = require('../config.json');
+
+module.exports = {
+   name: '',
+   alias: '',
+   usage: `${prefix}`,
+   cat: '',
+   perms: [],
+   desc: ``,
+   run: async (sela, msg, args) => {
+      // The code
+   }
+}

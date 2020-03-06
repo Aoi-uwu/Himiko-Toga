@@ -1,2 +1,2 @@
-# Miku
-Miku Bot
+# Sela
+Sela Bot

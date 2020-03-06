@@ -10,21 +10,21 @@ module.exports = {
    perms: [],
    desc: `Mira los comandos disponibles o la información de `+
    `un comando específico.`,
-   run: async (miku, msg, args) => {
-      if (!args[0]) return help(miku, msg);
+   run: async (sela, msg, args) => {
+      if (!args[0]) return help(sela, msg);
       if (args[0].toLowerCase() !== '-nodm' && !args[1])
-         return helpCMD(miku, msg, args);
+         return helpCMD(sela, msg, args);
       if (args[0].toLowerCase() === '-nodm')
-         return help(miku, msg, false);
-      helpCMD(miku, msg, args, false);
+         return help(sela, msg, false);
+      helpCMD(sela, msg, args, false);
    }
 }
 
-function help(miku, msg, dm=true) {
-   chunk(miku.commands.map(c => c.name), 5)
+function help(sela, msg, dm=true) {
+   chunk(sela.commands.map(c => c.name), 5)
    .then(arr => {
       const embed = new RichEmbed()
-      .setAuthor(miku.user.username, miku.user.displayAvatarURL)
+      .setAuthor(sela.user.username, sela.user.displayAvatarURL)
       .setTitle('Lista de comandos')
       .setColor(msg.member.displayHexColor === '#000000' ?
       msg.guild.me.displayHexColor : msg.member.displayHexColor);
@@ -41,13 +41,13 @@ function help(miku, msg, dm=true) {
    });
 }
 
-function helpCMD(miku, msg, args, dm=true) {
-   if (!miku.commands.get(args[0].toLowerCase()))
-      return msg.reply(`perdona, pero no sé cuál es el comando `+
-      `\`${args[0].toLowerCase()}\`.`);
-   const cmd = miku.commands.get(args[0].toLowerCase());
+function helpCMD(sela, msg, args, dm=true) {
+   if (!sela.commands.get(args[0].toLowerCase()))
+      return msg.reply(`disque `+
+      `\`${args[0].toLowerCase()}\`.\nPonga comandos que existan, no joda.`);
+   const cmd = sela.commands.get(args[0].toLowerCase());
    const embed = new RichEmbed()
-   .setAuthor(miku.user.username, miku.user.displayAvatarURL)
+   .setAuthor(sela.user.username, sela.user.displayAvatarURL)
    .setTitle(`Comando **${cmd.name}**`)
    .setColor(msg.member.displayHexColor === '#000000' ?
    msg.guild.me.displayHexColor : msg.member.displayHexColor)
@@ -66,7 +66,7 @@ function helpCMD(miku, msg, args, dm=true) {
    `).setFooter(`[] - Opcional, <> - Requerido`,
    msg.author.displayAvatarURL);
    if (dm) {
-      msg.reply('revisa tus DM\'s. uwu');
+      msg.reply('mire los privados.');
       msg.author.send(embed);
       return;
    }

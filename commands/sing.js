@@ -9,7 +9,7 @@ module.exports = {
    cat: 'Acción',
    perms: [],
    desc: `Pues... El mismo nombre lo indica.`,
-   run: async (miku, msg, args) => {
+   run: async (sela, msg, args) => {
       fetch(`https://api.tenor.com/v1/search?q=anime%20sing&`+
       `limit=10&key=${api.tenor}`, { method: "GET" })
       .then(res => res.json())

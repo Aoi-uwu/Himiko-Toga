@@ -8,9 +8,9 @@ module.exports = {
    cat: 'Bot',
    perms: [],
    desc: `Pong! Mira mi latencia y la latencia de la API.`,
-   run: async (miku, msg, args) => {
+   run: async (sela, msg, args) => {
       const embed = new RichEmbed()
-      .setAuthor(miku.user.username, miku.user.displayAvatarURL)
+      .setAuthor(sela.user.username, sela.user.displayAvatarURL)
       .setTitle('Haciendo ping...')
       .setColor('#FFC373')
       msg.channel.send(embed)
@@ -19,16 +19,16 @@ module.exports = {
             let ping = await m.createdTimestamp -
             msg.createdTimestamp;
             let ch = [
-               '¿Realmente ese es mi ping? o.o',
-               '¿Te parece que está bien? No lo puedo ver. XD',
-               'Sólo espero que no esté mal. uwu'
+               'Pille ese pingo piola. Creo.',
+               'Ay, mk, espero esté bien el ping.',
+               'Vea ese malparido ping.'
             ];
             let a = ch[Math.floor(Math.random() * ch.length)];
             embed.setTitle('Pong! 🏓')
             .setDescription(`
-               📥 **Mi latencia:** ${ping}ms
+               📥 **Latencia del melo:** ${ping}ms
                📡 **Latencia de DiscordAPI:** `+
-               `${Math.floor(miku.ping)}ms
+               `${Math.floor(sela.ping)}ms
             `)
             .setColor('#6AF291')
             .setFooter(a)
