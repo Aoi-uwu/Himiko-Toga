@@ -47,23 +47,24 @@ function helpCMD(sela, msg, args, dm=true) {
       `\`${args[0].toLowerCase()}\`.\nPonga comandos que existan, no joda.`);
    const cmd = sela.commands.get(args[0].toLowerCase());
    const embed = new RichEmbed()
-   .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+   .setFooter(`[] - Opcional, <> - Requerido`,
+   sela.user.displayAvatarURL)
    .setTitle(`Comando **${cmd.name}**`)
    .setColor(msg.member.displayHexColor === '#000000' ?
    msg.guild.me.displayHexColor : msg.member.displayHexColor)
    .setDescription(`
       **Nombre:** ${cmd.name}
-      **Alias:** ${cmd.alias.length == 0 ? 'No tiene' : cmd.alias[0]}
+      **Alias:** ${cmd.alias.length == 0 ? 'No tiene' : cmd.alias}
       **Categoría:** ${cmd.cat}
       **Descripción:** *${cmd.desc}*
       **Uso:** \`${cmd.usage}\`
       **Permisos:** ${
          !cmd.perms.length ? 'Ninguno en especial' :
-         `\`\`\`
-         ${cmd.perms.map(p => `-> ${p}`)}
-         \`\`\``
+         `\`\`\`\n`+
+         `${cmd.perms.map(p => `-> ${p}`).join('\n')}\n`+
+         `\`\`\``
       }
-   `).setFooter(`[] - Opcional, <> - Requerido`,
+   `).setAuthor(msg.author.username,
    msg.author.displayAvatarURL);
    if (dm) {
       msg.reply('mire los privados.');
