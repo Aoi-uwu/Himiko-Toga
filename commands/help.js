@@ -1,6 +1,6 @@
 const { RichEmbed } = require('discord.js');
-const { prefix } = require('../config.json');
-const chunk = require('../chunkArray');
+const { prefix } = require('../utility/config.json');
+const chunk = require('../utility/chunkArray');
 
 module.exports = {
    name: 'help',
@@ -33,7 +33,7 @@ function help(sela, msg, dm=true) {
          `\`${arr[i].toString().replace(/,/g, '\n')}\``, true);
       }
       if (dm) {
-         msg.reply('revisa tus DM\'s. uwu');
+         msg.reply('mira tus DM\'s.');
          msg.author.send(embed);
          return;
       }
@@ -44,7 +44,7 @@ function help(sela, msg, dm=true) {
 function helpCMD(sela, msg, args, dm=true) {
    if (!sela.commands.get(args[0].toLowerCase()))
       return msg.reply(`disque `+
-      `\`${args[0].toLowerCase()}\`.\nPonga comandos que existan, no joda.`);
+      `\`${args[0].toLowerCase()}\`.\nPonga comandos que existan, pedazo de escoria.`);
    const cmd = sela.commands.get(args[0].toLowerCase());
    const embed = new RichEmbed()
    .setFooter(`[] - Opcional, <> - Requerido`,
@@ -67,7 +67,7 @@ function helpCMD(sela, msg, args, dm=true) {
    `).setAuthor(msg.author.username,
    msg.author.displayAvatarURL);
    if (dm) {
-      msg.reply('mire los privados.');
+      msg.reply('mira tus DM\'s.');
       msg.author.send(embed);
       return;
    }

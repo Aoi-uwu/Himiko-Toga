@@ -1,5 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const { prefix } = require('../config.json');
+const { prefix } = require('../utility/config.json');
 
 module.exports = {
    name: 'ping',
@@ -19,14 +19,14 @@ module.exports = {
             let ping = await m.createdTimestamp -
             msg.createdTimestamp;
             let ch = [
-               'Pille ese pingo piola. Creo.',
-               'Ay, mk, espero esté bien el ping.',
-               'Vea ese malparido ping.'
+               'Vea eso, puro pelao\' con ping alto. Creo.',
+               'Momento ping.',
+               'Qué gonorrea de ping.'
             ];
             let a = ch[Math.floor(Math.random() * ch.length)];
             embed.setTitle('Pong! 🏓')
             .setDescription(`
-               📥 **Latencia del melo:** ${ping}ms
+               📥 **Mi latencia:** ${ping}ms
                📡 **Latencia de DiscordAPI:** `+
                `${Math.floor(sela.ping)}ms
             `)

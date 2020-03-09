@@ -1,5 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const { prefix, api } = require('../config.json');
+const { prefix, api } = require('../utility/config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
