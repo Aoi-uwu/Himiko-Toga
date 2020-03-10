@@ -1,4 +1,4 @@
-const { prefix } = require('../config.json');
+const { prefix } = require('../utility/config.json');
 
 module.exports = async (sela, msg) => {
    if (!msg.content.startsWith(prefix)) return;

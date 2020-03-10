@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports = (sela) => {
    sela.commands = new Collection();
    sela.aliases = new Collection();
-   var commands = fs.readdirSync('./commands')
+   var commands = fs.readdirSync('./commands/')
    .filter(f => f.endsWith('.js'));
    for (const command of commands) {
       let cmd = require(`./commands/${command}`);
