@@ -1,2 +1,2 @@
-# Sela
-Sela Bot
+# Himiko Toga
+Himiko bot
