@@ -11,17 +11,16 @@ module.exports = {
    desc: `Quita el silencio a algún miembro muteado.`,
    run: async (sela, msg, args) => {
       if (!msg.guild.me.hasPermission(module.exports.perms, false)) 
-         return msg.channel.send('No tengo permiso para silenciar miembros ni para gestionar canales. Paila.');
+         return msg.channel.send('No tengo permiso para silenciar miembros ni para gestionar canales.');
       if (!msg.member.hasPermission(module.exports.perms, false))
          return msg.channel.send('No tienes permiso para silenciar miembros ni para gestionar canales.');
          if (!args[0])
-         return msg.channel.send('Deje la maricada, mencione a alguien o coloque la ID, hijueputa.');
+         return msg.channel.send('Menciona a alguien o coloca su ID.');
       var member = getMember(msg, args[0]);
       if (!member)
-         return msg.channel.send('Oiga, mk, a lo bien, es tan fácil como mencionar a alguien o colocar la ID, '+
-         'qué maricada.');
+         return msg.channel.send('No encontré ningún miembro con esa ID.');
       if (member === msg.guild.owner)
-         return msg.channel.send('No sea marica.');
+         return msg.channel.send('...');
       var reason = !args[1] ? '*Motivo no especificado.*' : args.slice(1).join(' ');         
       if (member === msg.guild.me) {
          return msg.channel.send(new RichEmbed()
@@ -34,7 +33,8 @@ module.exports = {
          .setTimestamp())
          .then(m => {
             setTimeout(() => {
-               msg.channel.send('Qué malparido tan desparchado.')
+               m.delete();
+               msg.channel.send('...');
             }, 3000);
          });
       }
@@ -57,7 +57,8 @@ module.exports = {
          .setFooter('Usuario desmuteado')
          .setTimestamp());
       } catch(e) {
-         msg.channel.send(`No pude desmutear a ${member}.`);
+         msg.channel.send(`No pude desmutear a ${member}.
+         Probablemente tiene un rol superior al mío.`);
       }
    }
 }

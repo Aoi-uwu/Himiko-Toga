@@ -19,9 +19,9 @@ module.exports = {
             let ping = await m.createdTimestamp -
             msg.createdTimestamp;
             let ch = [
-               'Vea eso, puro pelao\' con ping alto. Creo.',
-               'Momento ping.',
-               'Qué gonorrea de ping.'
+               'Espero esté en condiciones. u////u',
+               'owo',
+               'uwu'
             ];
             let a = ch[Math.floor(Math.random() * ch.length)];
             embed.setTitle('Pong! 🏓')

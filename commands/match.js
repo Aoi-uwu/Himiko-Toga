@@ -37,8 +37,7 @@ module.exports = {
                if ((meA == me && matchA == match) ||
                (meA == me && matchA != match) ||
                (meA != me && matchA == match)) {
-                  await msg.channel.send('**'+matchName1+'**');
-                  await msg.channel.send(emotes[idx], {
+                  await msg.channel.send(`**${matchName1}** ${emotes[idx]}`, {
                      files: [{
                         attachment: canvas.toBuffer(),
                         name: `${matchName1}.png`
@@ -46,8 +45,7 @@ module.exports = {
                   });
                   return;
                } else {
-                  await msg.channel.send('**'+matchName1+'** | **'+matchName2+'**');
-                  await msg.channel.send(emotes[idx], {
+                  await msg.channel.send(`**${matchName1}** | **${matchName2}** ${emotes[idx]}`, {
                      files: [{
                         attachment: canvas.toBuffer(),
                         name: `${matchName1}.png`
@@ -86,8 +84,7 @@ module.exports = {
                if ((meA == me && matchA == match) ||
                (meA == me && matchA != match) ||
                (meA != me && matchA == match)) {
-                  await msg.channel.send('**'+matchName1+'**');
-                  await msg.channel.send(emotes[idx], {
+                  await msg.channel.send(`**${matchName1}** ${emotes[idx]}`, {
                      files: [{
                         attachment: canvas.toBuffer(),
                         name: `${matchName1}.png`
@@ -95,8 +92,7 @@ module.exports = {
                   });
                   return;
                } else {
-                  await msg.channel.send('**'+matchName1+'** | **'+matchName2+'**');
-                  await msg.channel.send(emotes[idx], {
+                  await msg.channel.send(`**${matchName1}** | **${matchName2}** ${emotes[idx]}`, {
                      files: [{
                         attachment: canvas.toBuffer(),
                         name: `${matchName1}.png`
@@ -132,8 +128,7 @@ module.exports = {
             if ((meA == me && matchA == match) ||
             (meA == me && matchA != match) ||
             (meA != me && matchA == match)) {
-               await msg.channel.send('**'+matchName1+'**');
-               await msg.channel.send(emotes[idx], {
+               await msg.channel.send(`**${matchName1}** ${emotes[idx]}`, {
                   files: [{
                      attachment: canvas.toBuffer(),
                      name: `${matchName1}.png`
@@ -141,8 +136,7 @@ module.exports = {
                });
                return;
             } else {
-               await msg.channel.send('**'+matchName1+'** | **'+matchName2+'**');
-               await msg.channel.send(emotes[idx], {
+               await msg.channel.send(`**${matchName1}** | **${matchName2}** ${emotes[idx]}`, {
                   files: [{
                      attachment: canvas.toBuffer(),
                      name: `${matchName1}.png`

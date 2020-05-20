@@ -43,8 +43,7 @@ function help(sela, msg, dm=true) {
 
 function helpCMD(sela, msg, args, dm=true) {
    if (!sela.commands.get(args[0].toLowerCase()))
-      return msg.reply(`disque `+
-      `\`${args[0].toLowerCase()}\`.\nPonga comandos que existan, pedazo de escoria.`);
+      return msg.reply(`no encontré ningún comando con ese nombre.`);
    const cmd = sela.commands.get(args[0].toLowerCase());
    const embed = new RichEmbed()
    .setFooter(`[] - Opcional, <> - Requerido`,
