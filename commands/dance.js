@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 module.exports = {
    name: 'dance',
-   alias: '',
+   alias: 'dancing',
    usage: `${prefix}dance`,
    cat: 'Acción',
    perms: [],

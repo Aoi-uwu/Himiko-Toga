@@ -1,5 +1,6 @@
 const { RichEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
+const rndColor = require('../utility/rndColor');
 
 module.exports = {
    name: '',

@@ -21,7 +21,7 @@ module.exports = {
       }
       var member = getMember(msg, args[0]);
       if (!member)
-         return msg.channel.send('Venga, en serio, le dije una mención o una ID, deje la güevonada.');
+         return msg.channel.send('Debes mencionar a alguien o colocar su ID.');
       msg.channel.send(new RichEmbed()
       .setAuthor(`Avatar de ${member.user.username}`,
       '', member.user.displayAvatarURL)
