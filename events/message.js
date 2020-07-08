@@ -1,4 +1,5 @@
 const { prefix } = require('../utility/config.json');
+
 var emojis = ['😺','😸','😹','😻','😼','😽','🙀',
 '😿','😾','🐱‍👤','🐱‍🏍','🐱‍💻','🐱‍🐉','🐱‍👓','🐱‍🚀','🙈','🙉',
 '🙊','🐵','🐶','🐺','🐱','🦁','🐯','🦒','🦊','🦝',
@@ -42,6 +43,8 @@ var emojis = ['😺','😸','😹','😻','😼','😽','🙀',
 '🚵‍♀️','🚵‍♂️','🤸‍♀️','🤸‍♂️'];
 
 module.exports = async (sela, msg) => {
+   // console.log(`${msg.guild.name} => ${msg.author.tag}: ${msg.content}`);
+
    if (msg.guild.id == '391824350690672640') {
       for (let i = 0; i < emojis.length; i++) {
          if (msg.content.includes(emojis[i])) {
@@ -50,7 +53,6 @@ module.exports = async (sela, msg) => {
             break;
          }
       }
-      return;
    }
    if (msg.mentions.users.has(sela.user.id)) {
       var say = [
@@ -59,12 +61,15 @@ module.exports = async (sela, msg) => {
          'Arroba Himiko Toga.', '<a:wavingCute:720297656831705219>',
          's t o p .'
       ];
-      if (Math.floor(Math.random() * 2) == 0) return;
-      msg.channel.startTyping();
-      setTimeout(() => {
-         msg.channel.stopTyping();
-         msg.channel.send(say[Math.floor(Math.random() * say.length)]);
-      }, 1000);
+      if (Math.floor(Math.random() * 2) == 0) {
+
+      } else {
+         msg.channel.startTyping();
+         setTimeout(() => {
+            msg.channel.stopTyping();
+            msg.channel.send(say[Math.floor(Math.random() * say.length)]);
+         }, 1000);
+      }
    }
    if (!msg.content.startsWith(prefix)) return;
    const args = msg.content.slice(prefix.length)
