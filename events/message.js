@@ -61,7 +61,8 @@ module.exports = async (sela, msg) => {
          'Nani?', `Holi, ${msg.author}.`,
          `${msg.author}`, '¿Por qué me mencionas? Sabes que no te puedo contestar.',
          'Arroba Himiko Toga.', '<a:wavingCute:720297656831705219>',
-         's t o p .'
+         's t o p .',
+         'Joder, buenas tardes.'
       ];
       if (Math.floor(Math.random() * 2) == 0) {
 
