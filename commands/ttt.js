@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { prefix } = require('../utility/config.json');
+const { prefix } = require('../config');
 const rndColor = require('../utility/rndColor');
 // const db = require('quick.db');
 

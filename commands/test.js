@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { prefix } = require('../utility/config.json');
+const { prefix } = require('../config');
 const rndColor = require('../utility/rndColor');
 const { createCanvas, loadImage, registerFont } = require('canvas');
 registerFont('./utility/fonts/JushleyShine.otf', { family: 'Cute Fonts' });
@@ -7,7 +7,7 @@ const canvas = createCanvas(1920, 540);
 const ctx = canvas.getContext('2d');
 
 module.exports = {
-   name: 'test',
+   name: 'testasdasd',
    alias: 'dequisde',
    usage: `${prefix}test`,
    cat: 'dequisde',

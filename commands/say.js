@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { prefix } = require('../utility/config.json');
+const { prefix } = require('../config');
 const rndColor = require('../utility/rndColor');
 const tts = require('google-tts-api');
 const { es } = require('../badwords.json');

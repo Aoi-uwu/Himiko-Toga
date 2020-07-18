@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { prefix } = require('../utility/config.json');
+const { prefix } = require('../config');
 
 module.exports = {
    name: 'kick',

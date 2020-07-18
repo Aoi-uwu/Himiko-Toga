@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { prefix, owner } = require('../utility/config.json');
+const { prefix, owner } = require('../config');
 const rndColor = require('../utility/rndColor');
 
 module.exports = {

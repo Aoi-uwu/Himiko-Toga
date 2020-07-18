@@ -1,7 +1,7 @@
 const { createCanvas, loadImage } = require('canvas');
 const canvas = createCanvas(3000, 1500);
 const ctx = canvas.getContext('2d');
-const { prefix } = require('../utility/config.json');
+const { prefix } = require('../config');
 
 module.exports = {
    name: 'match',
