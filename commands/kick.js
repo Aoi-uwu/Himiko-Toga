@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 
 module.exports = {
@@ -26,9 +26,17 @@ module.exports = {
          return msg.channel.send('Creo que sobra decirte porqué no puedes expulsar al owner.');
       var reason = !args[1] ? '*Motivo no especificado.*' : args.slice(1).join(' ');         
       if (member === msg.guild.me) {
-         return msg.channel.send(new RichEmbed()
-         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL)
-         .setThumbnail(member.user.displayAvatarURL)
+         return msg.channel.send(new MessageEmbed()
+         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
+         .setThumbnail(member.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .addField('Usuario', member, true)
          .addField('Motivo', reason)
          .setColor('#F9D387')
@@ -43,9 +51,17 @@ module.exports = {
       }
       member.kick(reason)
       .then(member => {
-         msg.channel.send(new RichEmbed()
-         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL)
-         .setThumbnail(member.user.displayAvatarURL)
+         msg.channel.send(new MessageEmbed()
+         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
+         .setThumbnail(member.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .addField('Usuario', member, true)
          .addField('Motivo', reason)
          .setColor('#F9D387')

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const getMember = require('../utility/getMember');
 
@@ -23,9 +23,17 @@ module.exports = {
          return msg.channel.send('...');
       var reason = !args[1] ? '*Motivo no especificado.*' : args.slice(1).join(' ');         
       if (member === msg.guild.me) {
-         return msg.channel.send(new RichEmbed()
-         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL)
-         .setThumbnail(member.user.displayAvatarURL)
+         return msg.channel.send(new MessageEmbed()
+         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
+         .setThumbnail(member.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .addField('Usuario', member, true)
          .addField('Motivo', reason)
          .setColor('#87F9B9')
@@ -39,8 +47,8 @@ module.exports = {
          });
       }
       try {
-         msg.guild.channels.filter(ch => ch.type == 'category').forEach(ch => {
-            ch.overwritePermissions(member, {
+         msg.guild.channels.cache.filter(ch => ch.type == 'category').forEach(ch => {
+            ch.updateOverwrite(member, {
                SEND_MESSAGES: null,
                CONNECT: null,
                SPEAK: null,
@@ -48,9 +56,17 @@ module.exports = {
                ADD_REACTIONS: null
             }, reason);
          });
-         msg.channel.send(new RichEmbed()
-         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL)
-         .setThumbnail(member.user.displayAvatarURL)
+         msg.channel.send(new MessageEmbed()
+         .setAuthor(`Moderador: ${msg.author.username}`, msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
+         .setThumbnail(member.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .addField('Usuario', member, true)
          .addField('Motivo', reason)
          .setColor('#87F9B9')
@@ -58,7 +74,7 @@ module.exports = {
          .setTimestamp());
       } catch(e) {
          msg.channel.send(`No pude desmutear a ${member}.
-         Probablemente tiene un rol superior al mío.`);
+Probablemente tiene un rol superior al mío.`);
       }
    }
 }

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix, owner } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 
@@ -14,15 +14,16 @@ module.exports = {
          return msg.channel.send('No eres mi creador, así que no puedes usar este comando.');
       if (!args[0])
          return msg.channel.send('Debes especificar el comando que quieras recargar.');
-      let cmdName = args[0].toLowerCase();
+      var cmdName = args[0].toLowerCase();
+      var cmd = sela.commands.get(cmdName)
+         || sela.commands.find(c => c.alias && c.alias == cmdName);
+      delete require.cache[require.resolve(`./${cmd.name}.js`)];
       try {
-         delete require.cache[require.resolve(`./${cmdName}.js`)];
-         sela.commands.delete(cmdName);
-         const pull = require(`./${cmdName}.js`);
-         sela.commands.set(cmdName, pull);
+         const pull = require(`./${cmd.name}.js`);
+         sela.commands.set(cmd.name, pull);
          msg.channel.send(`El comando **${cmdName}** ha sido actualizado.`);
       } catch (e) {
-         msg.channel.send(`Ehm... No he podido recargar ese comando, perdón.`);
+         msg.channel.send(`Ehm... No he podido recargar \`${cmd.name}\`, perdón.`);
       }
    }
 }

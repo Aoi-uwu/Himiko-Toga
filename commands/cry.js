@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix, api } = require('../utility/config.json');
 const fetch = require('node-fetch');
 
@@ -20,9 +20,13 @@ module.exports = {
          '#66C0E8' : [msg.member.displayHexColor, '#66C0E8'][
             Math.floor(Math.random() * 2)
          ];
-         const embed = new RichEmbed()
+         const embed = new MessageEmbed()
          .setAuthor(`${msg.author.username} está llorando.`,
-            msg.author.displayAvatarURL)
+            msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
          .setImage(img)
          .setColor(color);
          msg.channel.send(embed);

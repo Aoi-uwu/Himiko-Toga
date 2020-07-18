@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const fetch = require('node-fetch');
 const rndColor = require('../utility/rndColor');
@@ -16,7 +16,7 @@ module.exports = {
       await fetch(`https://nekos.life/api/v2/img/gasm`, { method: "GET" })
       .then(res => res.json())
       .then(async data => {
-         // embed = new RichEmbed()
+         // embed = new MessageEmbed()
          // .setAuthor('Enlace a la imagen', '', data.url)
          // .setColor(msg.member.displayHexColor == '#000000' ? rndColor() : msg.member.displayHexColor)
          // .setImage(data.url)

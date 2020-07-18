@@ -1,4 +1,4 @@
-const { RichEmbed, Attachment } = require('discord.js');
+const { MessageEmbed, Attachment } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 
@@ -16,8 +16,12 @@ module.exports = {
       var name = em.slice(0, em.indexOf(':')); var id = e.substr(e.indexOf('>')-18, 18);
       var emote = `https://cdn.discordapp.com/emojis/${id}.${e.startsWith('<a:') ? 'gif' : 'png'}`;
       if (args[1] === '-noem')
-         return msg.channel.send(new Attachment(emote));
-      msg.channel.send(new RichEmbed()
+         return msg.channel.send({
+            files: [
+               emote
+            ]
+         });
+      msg.channel.send(new MessageEmbed()
       .setDescription(`[${name}](${emote})`)
       .setImage(emote)
       .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));

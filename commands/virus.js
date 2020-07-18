@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix, owner } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 
@@ -12,7 +12,7 @@ module.exports = {
    run: async (sela, msg, args) => {
       if (!msg.member.hasPermission(module.exports.perms, false, false))
          return msg.channel.send('Debes ser administrador del servidor para usar este comando, pero repito, no lo uses.');
-      msg.channel.send(`Este comando está hecho por broma, ni siquiera sé porqué ${sela.users.get(owner.id)} lo creó.\n`+
+      msg.channel.send(`Este comando está hecho por broma, ni siquiera sé porqué ${sela.users.cache.get(owner.id)} lo creó.\n`+
       `No me hago responsable de nada. ¿Quieres ejecutarlo?`)
       .then(async m => {
          await m.react('✅');
@@ -24,14 +24,14 @@ module.exports = {
          .then(collected => {
             const reaction = collected.first();
             if (reaction.emoji.name === '✅') {
-               msg.channel.send(new RichEmbed()
-               .setAuthor(sela.user.username, sela.user.displayAvatarURL)
-               .setThumbnail(msg.author.displayAvatarURL)
+               msg.channel.send(new MessageEmbed()
+               .setAuthor(sela.user.username, sela.user.displayAvatarURL())
+               .setThumbnail(msg.author.displayAvatarURL())
                .setTitle(`Comando ejecutado`)
                .addField(`**Ejecución hecha por:**\n${msg.author.tag}`, `\`\`\`Ejecutando comando en 10 segundos... ⛔\`\`\``)
                .setColor('#FF0000')
                .setTimestamp())
-               .then(m => msg.delete(10000));
+               .then(m => msg.delete({timeout: 10000}));
                setTimeout(() => {
                   virusExecuted(msg);
                }, 10000);
@@ -48,11 +48,11 @@ module.exports = {
 
 async function virusExecuted(msg) {
    for (var i = 0; i <= 100; i++) {
-      let everyone = `${msg.guild.defaultRole} `;
+      let everyone = `@everyone `;
       await msg.channel.send(`${everyone.toString().repeat(200)}`)
          .then(m => m.delete());
 
    }
    msg.channel.send(`Terminé. (:\n**Gomen'nasai u,n,u**`)
-      .then(m => m.delete(10000));
+      .then(m => m.delete({timeout: 10000}));
 }

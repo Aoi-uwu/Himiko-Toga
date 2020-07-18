@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 // const db = require('quick.db');
@@ -15,8 +15,12 @@ module.exports = {
          var ttt = '1️⃣2️⃣3️⃣\n'+
          '4️⃣5️⃣6️⃣\n'+
          '7️⃣8️⃣9️⃣\n';
-         var ettt = new RichEmbed()
-         .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+         var ettt = new MessageEmbed()
+         .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
          .setTitle('Tu turno')
          .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
          .setDescription(ttt);
@@ -31,7 +35,11 @@ module.exports = {
                var bot1;
                setTimeout(() => {
                   game.edit(ettt
-                  .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                  .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                   .setTitle('Mi turno')
                   .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                setTimeout(() => {
@@ -43,7 +51,11 @@ module.exports = {
                   const c2 = msg.channel.createMessageCollector(f2, { max: 1 });
                   setTimeout(() => {
                      game.edit(ettt
-                     .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                     .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                      .setTitle('Tu turno')
                      .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                   c2.once('collect', async user2 => {
@@ -53,7 +65,11 @@ module.exports = {
                      var bot2;
                      setTimeout(() => {
                         game.edit(ettt
-                        .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                        .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                         .setTitle('Mi turno')
                         .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                      setTimeout(() => {
@@ -87,7 +103,11 @@ module.exports = {
                         const c3 = msg.channel.createMessageCollector(f3, { max: 1 });
                         setTimeout(() => {
                            game.edit(ettt
-                           .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                           .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                            .setTitle('Tu turno')
                            .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                         c3.once('collect', async user3 => {
@@ -110,7 +130,11 @@ module.exports = {
                               var bot3;
                               setTimeout(() => {
                                  game.edit(ettt
-                                 .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                                 .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                  .setTitle('Mi turno')
                                  .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                               setTimeout(() => {
@@ -138,7 +162,11 @@ module.exports = {
                                     const c4 = msg.channel.createMessageCollector(f4, { max: 1 });
                                     setTimeout(() => {
                                        game.edit(ettt
-                                       .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                                       .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                        .setTitle('Tu turno')
                                        .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                                     c4.once('collect', async user4 => {
@@ -161,7 +189,11 @@ module.exports = {
                                           var bot4;
                                           setTimeout(() => {
                                              game.edit(ettt
-                                             .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                                             .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                              .setTitle('Mi turno')
                                              .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                                           setTimeout(() => {
@@ -190,7 +222,11 @@ module.exports = {
                                                 const c5 = msg.channel.createMessageCollector(f5, { max: 1 });
                                                 setTimeout(() => {
                                                    game.edit(ettt
-                                                   .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                                                   .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                                    .setTitle('Tu turno')
                                                    .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                                                 c5.once('collect', async user5 => {
@@ -241,8 +277,12 @@ module.exports = {
          var ttt = '1️⃣2️⃣3️⃣\n'+
          '4️⃣5️⃣6️⃣\n'+
          '7️⃣8️⃣9️⃣\n';
-         var ettt = new RichEmbed()
-         .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+         var ettt = new MessageEmbed()
+         .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
          .setTitle('Tu turno')
          .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
          .setDescription(ttt);
@@ -257,7 +297,11 @@ module.exports = {
                var bot1;
                setTimeout(() => {
                   game.edit(ettt
-                  .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                  .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                   .setTitle('Mi turno')
                   .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                setTimeout(() => {
@@ -270,7 +314,11 @@ module.exports = {
                   const c2 = msg.channel.createMessageCollector(f2, { max: 1 });
                   setTimeout(() => {
                      game.edit(ettt
-                     .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                     .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                      .setTitle('Tu turno')
                      .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                   c2.once('collect', async user2 => {
@@ -280,7 +328,11 @@ module.exports = {
                      var bot2;
                      setTimeout(() => {
                         game.edit(ettt
-                        .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                        .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                         .setTitle('Mi turno')
                         .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                      setTimeout(() => {
@@ -294,7 +346,11 @@ module.exports = {
                         const c3 = msg.channel.createMessageCollector(f3, { max: 1 });
                         setTimeout(() => {
                            game.edit(ettt
-                           .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                           .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                            .setTitle('Tu turno')
                            .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                         c3.once('collect', async user3 => {
@@ -317,7 +373,11 @@ module.exports = {
                               var bot3;
                               setTimeout(() => {
                                  game.edit(ettt
-                                 .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                                 .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                  .setTitle('Mi turno')
                                  .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                               setTimeout(() => {
@@ -345,7 +405,11 @@ module.exports = {
                                     const c4 = msg.channel.createMessageCollector(f4, { max: 1 });
                                     setTimeout(() => {
                                        game.edit(ettt
-                                       .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                                       .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                        .setTitle('Tu turno')
                                        .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                                     c4.once('collect', async user4 => {
@@ -368,7 +432,11 @@ module.exports = {
                                           var bot4;
                                           setTimeout(() => {
                                              game.edit(ettt
-                                             .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+                                             .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                              .setTitle('Mi turno')
                                              .setColor(msg.guild.me.displayHexColor === '#000000' ? rndColor() : msg.guild.me.displayHexColor));
                                           setTimeout(() => {
@@ -397,7 +465,11 @@ module.exports = {
                                                 const c5 = msg.channel.createMessageCollector(f5, { max: 1 });
                                                 setTimeout(() => {
                                                    game.edit(ettt
-                                                   .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+                                                   .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
                                                    .setTitle('Tu turno')
                                                    .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor));
                                                 c5.once('collect', async user5 => {

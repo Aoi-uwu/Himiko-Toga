@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const chunk = require('../utility/chunkArray');
 
@@ -23,13 +23,17 @@ module.exports = {
 function help(sela, msg, dm=true) {
    chunk(sela.commands.map(c => c.name), 5)
    .then(arr => {
-      const embed = new RichEmbed()
-      .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+      const embed = new MessageEmbed()
+      .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
       .setTitle('Lista de comandos')
       .setColor(msg.member.displayHexColor === '#000000' ?
       msg.guild.me.displayHexColor : msg.member.displayHexColor);
       for (let i = 0; i < arr.length; i++) {
-         embed.addField(msg.guild.emojis.random(),
+         embed.addField(msg.guild.emojis.cache.random(),
          `\`${arr[i].toString().replace(/,/g, '\n')}\``, true);
       }
       if (dm) {
@@ -45,9 +49,13 @@ function helpCMD(sela, msg, args, dm=true) {
    if (!sela.commands.get(args[0].toLowerCase()))
       return msg.reply(`no encontré ningún comando con ese nombre.`);
    const cmd = sela.commands.get(args[0].toLowerCase());
-   const embed = new RichEmbed()
+   const embed = new MessageEmbed()
    .setFooter(`[] - Opcional, <> - Requerido`,
-   sela.user.displayAvatarURL)
+   sela.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
    .setTitle(`Comando **${cmd.name}**`)
    .setColor(msg.member.displayHexColor === '#000000' ?
    msg.guild.me.displayHexColor : msg.member.displayHexColor)
@@ -64,7 +72,11 @@ function helpCMD(sela, msg, args, dm=true) {
          `\`\`\``
       }
    `).setAuthor(msg.author.username,
-   msg.author.displayAvatarURL);
+   msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }));
    if (dm) {
       msg.reply('mira tus DM\'s.');
       msg.author.send(embed);

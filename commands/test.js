@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 const { createCanvas, loadImage, registerFont } = require('canvas');
@@ -16,7 +16,11 @@ module.exports = {
    run: async (sela, msg, args) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       let name = msg.author.username;
-      let avatar = msg.author.displayAvatarURL;
+      let avatar = msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            });
       await loadImage(avatar)
       .then(av => {
          ctx.drawImage(av, 780, 25, 357, 357);
@@ -27,7 +31,11 @@ module.exports = {
             ctx.fillStyle = '#FFFFFF';
             ctx.textAlign = 'center';
             ctx.fillText(name, canvas.width/2, 500);
-            loadImage(msg.guild.owner.user.displayAvatarURL)
+            loadImage(msg.guild.owner.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
             .then(owner => {
                ctx.drawImage(owner, 25, 415, 100, 100);
                ctx.font = '55px "Cute Fonts"';

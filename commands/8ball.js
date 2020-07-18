@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 
@@ -18,11 +18,19 @@ module.exports = {
          'I guess (?', '<a:yes:728672934918619136>', '<a:no:728674436168941608>',
          '<a:yesyes:728674436655611904>', '<a:nono:728674435732734014>'
       ];
-      msg.channel.send(new RichEmbed()
-      .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+      msg.channel.send(new MessageEmbed()
+      .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
       .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
       .addField('Pregunta', question)
       .addField('Respuesta', answers[Math.floor(Math.random() * answers.length)])
-      .setFooter(sela.user.username, sela.user.displayAvatarURL));
+      .setFooter(sela.user.username, sela.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      })));
    }
 }

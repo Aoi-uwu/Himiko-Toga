@@ -14,13 +14,21 @@ module.exports = {
       if (!args[0]) {
          let me = msg.author.username;
          let meA = msg.member.nickname || me;
-         let rnd = msg.guild.members.filter(m => m.id !== msg.author.id).random();
+         let rnd = msg.guild.members.cache.filter(m => m.id !== msg.author.id).random();
          let match = rnd.user.username;
          let matchA = rnd.nickname || match;
-         loadImage(msg.author.displayAvatarURL)
+         loadImage(msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .then(img1 => {
             ctx.drawImage(img1, 0, 0, 1500, 1500);
-            loadImage(rnd.user.displayAvatarURL)
+            loadImage(rnd.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
             .then(async img2 => {
                ctx.drawImage(img2, 1500, 0, 1500, 1500);
                let matchName1 = `${me.slice(0, me.length/2)}${match.slice(match.length/2)}`;
@@ -64,10 +72,18 @@ module.exports = {
          let meA = msg.member.nickname || me;
          let match = member1.user.username;
          let matchA = member1.nickname || match;
-         loadImage(msg.author.displayAvatarURL)
+         loadImage(msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .then(img1 => {
             ctx.drawImage(img1, 0, 0, 1500, 1500);
-            loadImage(member1.user.displayAvatarURL)
+            loadImage(member1.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
             .then(async img2 => {
                ctx.drawImage(img2, 1500, 0, 1500, 1500);
                let matchName1 = `${me.slice(0, me.length/2)}${match.slice(match.length/2)}`;
@@ -108,10 +124,18 @@ module.exports = {
       let meA = member1.nickname || me;
       let match = member2.user.username;
       let matchA = member2.nickname || match;
-      loadImage(member1.user.displayAvatarURL)
+      loadImage(member1.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
       .then(img1 => {
          ctx.drawImage(img1, 0, 0, 1500, 1500);
-         loadImage(member2.user.displayAvatarURL)
+         loadImage(member2.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
          .then(async img2 => {
             ctx.drawImage(img2, 1500, 0, 1500, 1500);
             let matchName1 = `${me.slice(0, me.length/2)}${match.slice(match.length/2)}`;

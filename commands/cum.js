@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 const fetch = require('node-fetch');
 const rndColor = require('../utility/rndColor');
@@ -13,18 +13,22 @@ module.exports = {
    run: async (sela, msg, args) => {
       if (!msg.channel.nsfw)
          return msg.channel.send('Este comando sólo lo puedes usar en canales NSFW.');
-      msg.channel.send(new RichEmbed()
+      msg.channel.send(new MessageEmbed()
       .setAuthor('Cargando...')
       .setColor('#2F3136'))
       .then(async m => {
          await fetch(`https://nekos.life/api/v2/img/cum`, { method: "GET" })
          .then(res => res.json())
          .then(async data => {
-            embed = new RichEmbed()
+            embed = new MessageEmbed()
             .setAuthor('Enlace a la imagen', '', data.url)
             .setColor(msg.member.displayHexColor == '#000000' ? rndColor() : msg.member.displayHexColor)
             .setImage(data.url)
-            .setFooter(`Pedido por ${msg.author.username}`, msg.author.displayAvatarURL);
+            .setFooter(`Pedido por ${msg.author.username}`, msg.author.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }));
             await m.edit(embed);
          });
       });

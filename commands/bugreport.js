@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix, owner } = require('../utility/config.json');
 const rndColor = require('../utility/rndColor');
 
@@ -14,8 +14,12 @@ module.exports = {
          return msg.channel.send('Debes especificar el mensaje indicando el bug que hayas encontrado.'+
          '\nTrata de ser lo más específico posible.');
       var message = args.slice(0).join(' ');
-      sela.users.get(owner.id).send(new RichEmbed()
-      .setAuthor(msg.author.tag, msg.author.displayAvatarURL)
+      sela.users.cache.get(owner.id).send(new MessageEmbed()
+      .setAuthor(msg.author.tag, msg.author.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
       .setDescription(message)
       .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
       .addField('Enviado desde', msg.guild.name, true)

@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../utility/config.json');
 
 module.exports = {
@@ -9,8 +9,12 @@ module.exports = {
    perms: [],
    desc: `Pong! Mira mi latencia y la latencia de la API.`,
    run: async (sela, msg, args) => {
-      const embed = new RichEmbed()
-      .setAuthor(sela.user.username, sela.user.displayAvatarURL)
+      const embed = new MessageEmbed()
+      .setAuthor(sela.user.username, sela.user.displayAvatarURL({
+         format: 'png',
+         dynamic: true,
+         size: 2048
+      }))
       .setTitle('Haciendo ping...')
       .setColor('#FFC373')
       msg.channel.send(embed)
@@ -25,11 +29,8 @@ module.exports = {
             ];
             let a = ch[Math.floor(Math.random() * ch.length)];
             embed.setTitle('Pong! 🏓')
-            .setDescription(`
-               📥 **Mi latencia:** ${ping}ms
-               📡 **Latencia de DiscordAPI:** `+
-               `${Math.floor(sela.ping)}ms
-            `)
+            .setDescription(`📥 **Mi latencia:** ${ping}ms
+📡 **Latencia de DiscordAPI:** `+`${Math.floor(sela.ws.ping)}ms`)
             .setColor('#6AF291')
             .setFooter(a)
             .setTimestamp();

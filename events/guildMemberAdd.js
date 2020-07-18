@@ -8,7 +8,11 @@ module.exports = async (sela, member) => {
    channel = sela.channels.get('606551048362131467');
    ctx.clearRect(0, 0, canvas.width, canvas.height);
    let name = member.user.username;
-   let avatar = member.user.displayAvatarURL;
+   let avatar = member.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            });
    await loadImage(avatar)
    .then(av => {
       ctx.drawImage(av, 780, 25, 357, 357);
@@ -19,7 +23,11 @@ module.exports = async (sela, member) => {
          ctx.fillStyle = '#FFFFFF';
          ctx.textAlign = 'center';
          ctx.fillText(name, canvas.width/2, 500);
-         loadImage(member.guild.owner.user.displayAvatarURL)
+         loadImage(member.guild.owner.user.displayAvatarURL({
+               format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
          .then(owner => {
             ctx.drawImage(owner, 25, 415, 100, 100);
             ctx.font = '55px "Cute Fonts"';
