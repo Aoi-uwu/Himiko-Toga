@@ -109,6 +109,12 @@ module.exports = async (sela, msg) => {
             './utility/HOW.mp3'
          ]
       });
+   if (msg.content.toLowerCase() === 'pongan bachata')
+      msg.channel.send({
+         files: [
+            './utility/Propuesta Indecente.m4a'
+         ]
+      });
    if (msg.content === 'Hace años que ocurrió')
       msg.channel.send('Y no lo olvidaré');
    if (msg.content === 'Y no lo olvidaré')
