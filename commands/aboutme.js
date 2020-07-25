@@ -15,7 +15,7 @@ module.exports = {
       `Gracias a ${sela.users.cache.get(owner.id)} soy capaz de ejecutar cada uno de los comandos `+
       `que poseo, aunque ni él ni yo podemos negar que algunos no estén *del todo* funcionales, así `+
       `que puedes usar \`~bugreport\` para notificar a ${sela.users.cache.get(owner.id)} y que lo pueda `+
-      `resolver lo más pronto posible, o bien puedes escribirle directamente (aunque sinceramente **no lo recomiento**, `+
+      `resolver lo más pronto posible, puedes enviar una sugerencia usando \`~suggest\` o bien puedes escribirle directamente (aunque sinceramente **no lo recomiento**, `+
       `podría molestarse).\nSupongo que no sería mucho más por ahora, simplemente usa \`~help\` y `+
       `disfruta con mis comandos. owo`;
       var embed = new MessageEmbed()
