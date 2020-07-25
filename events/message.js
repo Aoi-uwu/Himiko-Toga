@@ -100,7 +100,7 @@ module.exports = async (sela, msg) => {
    if (msg.content.toLowerCase() === 'what')
       msg.channel.send({
          files: [
-            './utility/WHAT.mp3'
+            './utility/WHAT.m4a'
          ]
       });
    if (msg.content.toLowerCase() === 'how')
