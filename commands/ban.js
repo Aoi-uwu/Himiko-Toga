@@ -19,7 +19,7 @@ module.exports = {
       var member = msg.mentions.members.first();
       if (!member) {
          member = args[0].replace(/^<@!?(\d+)>$/, '');
-         member = msg.guild.members.get(member);
+         member = msg.guild.members.cache.get(member);
       }
       if (!member)
          return msg.channel.send('No encontré ningún miembro con esa ID.');
