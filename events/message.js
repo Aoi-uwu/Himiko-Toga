@@ -44,7 +44,6 @@ var emojis = ['😺','😸','😹','😻','😼','😽','🙀',
 
 module.exports = async (sela, msg) => {
    if (msg.author.bot) return;
-   // console.log(`${msg.guild.name} => ${msg.author.tag}: ${msg.content}`);
 
    if (msg.guild && msg.guild.id == '391824350690672640') {
       for (let i = 0; i < emojis.length; i++) {
