@@ -11,7 +11,7 @@ module.exports = {
    desc: `Besa a algún miembro del servidor.`,
    run: async (sela, msg, args) => {
       if (!args[0])
-         return msg.channel.send('Debes mencionar a quien quieres bonkear.');
+         return msg.channel.send('Debes mencionar a quien quieres besar.');
       var member = msg.mentions.members.first();
       if (!member)
          return msg.channel.send('Parece que no has mencionado a un miembro.');
