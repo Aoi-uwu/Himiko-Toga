@@ -108,14 +108,14 @@ module.exports = async (sela, msg) => {
             './utility/HOW.mp3'
          ]
       });
-   if (msg.content.toLowerCase() === 'pongan bachata')
+   if (msg.content.toLowerCase() === 'pongan bachata' && msg.guild.id !== '727554659257942036')
       msg.channel.send({
          files: [
             './utility/Propuesta Indecente.m4a'
          ]
       });
-   if (msg.content.toLowerCase() === 'pongan mas bachata' ||
-   msg.content.toLowerCase() === 'pongan más bachata')
+   if ((msg.content.toLowerCase() === 'pongan mas bachata' ||
+   msg.content.toLowerCase() === 'pongan más bachata') && msg.guild.id !== '727554659257942036')
       msg.channel.send({
          files: [
             './utility/Darte un beso.m4a'
