@@ -140,7 +140,7 @@ module.exports = async (sela, msg) => {
    if (msg.content.toLowerCase() === 'por qué ese hombre a querido')
       msg.channel.send('Hacerlos desaparecer');
 
-   if (msg.content === 'Efectivamente.')
+   if (msg.content === 'Efectivamente.' && msg.guild.id !== '391824350690672640')
       msg.channel.send('Barney es puto.');
    if (msg.content === 'Jueputa, puta')
       return msg.channel.send(`Jueputa, puta
