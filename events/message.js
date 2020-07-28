@@ -121,6 +121,13 @@ module.exports = async (sela, msg) => {
             './utility/Darte un beso.m4a'
          ]
       });
+   if (msg.content.toLowerCase() === 'tu voz estereo' ||
+   msg.content.toLowerCase() === 'tu voz estéreo')
+      msg.channel.send({
+         files: [
+            './utility/Tu Voz Estéreo - Capítulo 1.mp4'
+         ]
+      });
    if (msg.content === 'Hace años que ocurrió')
       msg.channel.send('Y no lo olvidaré');
    if (msg.content === 'Y no lo olvidaré')
