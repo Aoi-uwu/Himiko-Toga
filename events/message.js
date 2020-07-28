@@ -123,11 +123,7 @@ module.exports = async (sela, msg) => {
       });
    if (msg.content.toLowerCase() === 'tu voz estereo' ||
    msg.content.toLowerCase() === 'tu voz estéreo')
-      msg.channel.send({
-         files: [
-            './utility/Tu Voz Estéreo - Capítulo 1.mp4'
-         ]
-      });
+      msg.channel.send('https://cdn.discordapp.com/attachments/687647112598519828/737565731570319370/Tu_Voz_Estereo_-_Capitulo_1.mp4');
    if (msg.content === 'Hace años que ocurrió')
       msg.channel.send('Y no lo olvidaré');
    if (msg.content === 'Y no lo olvidaré')
