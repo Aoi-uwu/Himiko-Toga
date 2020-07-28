@@ -73,29 +73,6 @@ module.exports = async (sela, msg) => {
          }, 1000);
       }
    }
-   if (msg.content == `<@!${sela.user.id}>, what's your name?`) {
-      msg.channel.startTyping();
-      setTimeout(() => {
-         msg.channel.stopTyping();
-         msg.channel.send({
-            files: [
-               './utility/movistar.png'
-            ]
-         });
-      }, 3000);
-   }
-   if (msg.content === 'wachu wachu wo')
-      msg.channel.send('wachu wachu wo', {
-         files: [
-            './utility/fernan.mp4'
-         ]
-      });
-   if (msg.content === 'wachi wachi wa')
-      msg.channel.send('wachi wachi wa', {
-         files: [
-            './utility/fernan.mp4'
-         ]
-      });
    if (msg.content.toLowerCase() === 'what')
       msg.channel.send({
          files: [
@@ -108,64 +85,6 @@ module.exports = async (sela, msg) => {
             './utility/HOW.mp3'
          ]
       });
-   if (msg.content.toLowerCase() === 'pongan bachata' && msg.guild.id !== '727554659257942036')
-      msg.channel.send({
-         files: [
-            './utility/Propuesta Indecente.m4a'
-         ]
-      });
-   if ((msg.content.toLowerCase() === 'pongan mas bachata' ||
-   msg.content.toLowerCase() === 'pongan más bachata') && msg.guild.id !== '727554659257942036')
-      msg.channel.send({
-         files: [
-            './utility/Darte un beso.m4a'
-         ]
-      });
-
-   if (msg.content.toLowerCase() === 'hace años que ocurrió')
-      msg.channel.send('Y no lo olvidaré');
-   if (msg.content.toLowerCase() === 'y no lo olvidaré')
-      msg.channel.send('Las almas de los niños');
-   if (msg.content.toLowerCase() === 'las almas de los niños')
-      msg.channel.send('Siempre las recordaré');
-   if (msg.content.toLowerCase() === 'siempre las recordaré')
-      msg.channel.send('Odio verlos llorar');
-   if (msg.content.toLowerCase() === 'odio verlos llorar')
-      msg.channel.send('No logro comprender');
-   if (msg.content.toLowerCase() === 'no logro comprender')
-      msg.channel.send('Por qué ese hombre a querido');
-   if (msg.content.toLowerCase() === 'por qué ese hombre a querido')
-      msg.channel.send('Hacerlos desaparecer');
-
-   if (msg.content === 'Efectivamente.' && msg.guild.id !== '391824350690672640')
-      msg.channel.send('Barney es puto.');
-   if (msg.content === 'Jueputa, puta')
-      return msg.channel.send(`Jueputa, puta
-Hijueputa (Hijueputa)
-
-Jueputa, puta, jueputa, puta
-Jueputa, puta, jueputa, puta
-Hijueputa (Hijueputa)
-Hijueputa (Hijueputa)
-
-Vam-, Vamo' la hijueputa
-Perreo hijueputa
-Hijueputa, hijueputa
-Hijueputa, hijueputa
-
-Esto es un perreo hijueputa
-Hijueputa, hijueputa
-Hijueputa, jueputa
-Jueputa-jueputa-jueputa
-
-Vam-, Vamo' la hijueputa
-Perreo hijueputa
-Bellaqueo hijueputa
-Vos sos un hijueputa
-Hijueputa, hijueputa
-Hijueputa, hijueputa
-Jueputa, jueputa
-Jueputa, jueputa`);
    if (!msg.content.startsWith(prefix)) return;
    const args = msg.content.slice(prefix.length)
    .trim().split(/ +/);
