@@ -130,6 +130,8 @@ module.exports = async (sela, msg) => {
       msg.channel.send('Las almas de los niños siempre las recordaré');
    if (msg.content === 'Las almas de los niños siempre las recordaré')
       msg.channel.send('Ya, valórate.');
+   if (msg.content === 'Efectivamente.')
+      msg.channel.send('Barney es puto.');
    if (msg.content === 'Jueputa, puta')
       return msg.channel.send(`Jueputa, puta
 Hijueputa (Hijueputa)
