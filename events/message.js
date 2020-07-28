@@ -124,12 +124,22 @@ module.exports = async (sela, msg) => {
    if (msg.content.toLowerCase() === 'tu voz estereo' ||
    msg.content.toLowerCase() === 'tu voz estéreo')
       msg.channel.send('https://cdn.discordapp.com/attachments/687647112598519828/737565731570319370/Tu_Voz_Estereo_-_Capitulo_1.mp4');
-   if (msg.content === 'Hace años que ocurrió')
+
+   if (msg.content.toLowerCase() === 'hace años que ocurrió')
       msg.channel.send('Y no lo olvidaré');
-   if (msg.content === 'Y no lo olvidaré')
-      msg.channel.send('Las almas de los niños siempre las recordaré');
-   if (msg.content === 'Las almas de los niños siempre las recordaré')
-      msg.channel.send('Ya, valórate.');
+   if (msg.content.toLowerCase() === 'y no lo olvidaré')
+      msg.channel.send('Las almas de los niños');
+   if (msg.content.toLowerCase() === 'las almas de los niños')
+      msg.channel.send('Siempre las recordaré');
+   if (msg.content.toLowerCase() === 'siempre las recordaré')
+      msg.channel.send('Odio verlos llorar');
+   if (msg.content.toLowerCase() === 'odio verlos llorar')
+      msg.channel.send('No logro comprender');
+   if (msg.content.toLowerCase() === 'no logro comprender')
+      msg.channel.send('Por qué ese hombre a querido');
+   if (msg.content.toLowerCase() === 'por qué ese hombre a querido')
+      msg.channel.send('Hacerlos desaparecer');
+
    if (msg.content === 'Efectivamente.')
       msg.channel.send('Barney es puto.');
    if (msg.content === 'Jueputa, puta')
