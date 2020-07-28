@@ -121,9 +121,6 @@ module.exports = async (sela, msg) => {
             './utility/Darte un beso.m4a'
          ]
       });
-   if (msg.content.toLowerCase() === 'tu voz estereo' ||
-   msg.content.toLowerCase() === 'tu voz estéreo')
-      msg.channel.send('https://cdn.discordapp.com/attachments/687647112598519828/737565731570319370/Tu_Voz_Estereo_-_Capitulo_1.mp4');
 
    if (msg.content.toLowerCase() === 'hace años que ocurrió')
       msg.channel.send('Y no lo olvidaré');
