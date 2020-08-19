@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { prefix } = require('../config');
 const Danbooru = require('danbooru');
-const login = 'login';
+const login = 'Selita';
 const key = 'xHxb3nWbnjGsamPzupKTG4t2';
 const booru = new Danbooru(login + ':' + key);
 const fetch = require('node-fetch');
