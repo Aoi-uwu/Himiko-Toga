@@ -17,6 +17,6 @@ module.exports = {
    run: async (sela, msg, args) => {
       const posts = await booru.posts({ limit: 100, tags: 'boobs', random: true });
       const img = posts[Math.floor(Math.random() * posts.length)].file_url;
-      console.log(img);
+      console.log(posts);
    }
 }
