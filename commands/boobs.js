@@ -16,7 +16,7 @@ module.exports = {
    desc: `El nombre es bastante claro.`,
    run: async (sela, msg, args) => {
       const posts = await booru.posts({ limit: 100, tags: 'boobs', random: true });
-      // const img = posts[Math.floor(Math.random() * posts.length)].file_url;
-      console.log(posts);
+      const img = posts[Math.floor(Math.random() * posts.length)].file_url;
+      console.log(img);
    }
 }
