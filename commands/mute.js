@@ -10,6 +10,7 @@ module.exports = {
    perms: ['MUTE_MEMBERS', 'MANAGE_CHANNELS'],
    desc: `Silencia a algún miembro del servidor.`,
    run: async (sela, msg, args) => {
+      return msg.channel.send('Anda en reparación el comando, no lo puedes usar por el momento.');
       if (!msg.guild.me.hasPermission(module.exports.perms, false)) 
          return msg.channel.send('No tengo permiso para silenciar miembros ni para gestionar canales.');
       if (!msg.member.hasPermission(module.exports.perms, false))
