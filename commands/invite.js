@@ -10,7 +10,7 @@ module.exports = {
    perms: [],
    desc: `Invítame a cualquier servidor donde tengas permiso para **Administrar servidor**.`,
    run: async (sela, msg, args) => {
-      let invite = `https://discord.com/oauth2/authorize?client_id=${sela.user.id}&scope=bot&permissions=8`;
+      let invite = `https://discord.com/oauth2/authorize?client_id=${sela.user.id}&scope=bot&permissions=376826998`;
       let embed = new MessageEmbed()
       .setAuthor(msg.author.username, msg.author.displayAvatarURL({
          format: 'png',
