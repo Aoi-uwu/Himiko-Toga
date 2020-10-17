@@ -47,10 +47,10 @@ module.exports = {
          });
       }
       try {
-         msg.guild.channels.cache.filter(ch => ch.type == 'category').forEach(async ch => {
+         msg.guild.channels.cache.filter(ch => ch.type == 'text' || ch.type == 'voice').forEach(async ch => {
             await ch.overwritePermissions([
                {
-                  id: member,
+                  id: member.id,
                   deny: ['SEND_MESSAGES']
                },
                {
