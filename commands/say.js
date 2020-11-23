@@ -27,19 +27,19 @@ module.exports = {
       }
       try {
          tts(text, 'es', 1.6)
-      .then(voice => msg.member.voice.channel.join()
-      .then(c => {
-         msg.delete();
-         c.play(voice);
-         msg.channel.send(new MessageEmbed()
-         .setAuthor(msg.author.username, msg.author.displayAvatarURL({
-            format: 'png',
-            dynamic: true,
-            size: 2048
-         }))
-         .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
-         .setDescription(text));
-      });
+         .then(voice => msg.member.voice.channel.join()
+         .then(c => {
+            msg.delete();
+            c.play(voice);
+            msg.channel.send(new MessageEmbed()
+            .setAuthor(msg.author.username, msg.author.displayAvatarURL({
+              format: 'png',
+               dynamic: true,
+               size: 2048
+            }))
+            .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
+            .setDescription(text));
+         }));
       } catch (e) {
          tts('Mucho texto.', 'es', 1.6)
          .then(voice => {
