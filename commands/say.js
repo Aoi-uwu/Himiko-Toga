@@ -25,7 +25,8 @@ module.exports = {
          msg.delete();
          return msg.channel.send(text);
       }
-      tts(text, 'es', 1.6)
+      try {
+         tts(text, 'es', 1.6)
       .then(voice => msg.member.voice.channel.join()
       .then(c => {
          msg.delete();
@@ -38,9 +39,8 @@ module.exports = {
          }))
          .setColor(msg.member.displayHexColor === '#000000' ? rndColor() : msg.member.displayHexColor)
          .setDescription(text));
-      }).catch(e => {
-         msg.channel.send('perdon');
-      })).catch(e => {
+      });
+      } catch (e) {
          tts('Mucho texto.', 'es', 1.6)
          .then(voice => {
             msg.member.voice.channel.join()
@@ -50,7 +50,7 @@ module.exports = {
                msg.channel.send('Mucho texto.');
             });
          });
-      });
+      }
    }
 }
 
