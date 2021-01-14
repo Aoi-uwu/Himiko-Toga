@@ -2,6 +2,9 @@
   "name": "sela",
   "version": "1.0.0",
   "description": "Discord bot",
+  "engines": {
+    "node": "15.x"
+  },
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
