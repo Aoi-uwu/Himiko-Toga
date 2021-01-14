@@ -1,4 +1,6 @@
-const { prefix } = require('../config');
+const { prefix, pass } = require('../config');
+const MongoClient = require('mongodb').MongoClient;
+var url = `mongodb+srv://Sela:${pass.mongodb}@leveling.5ddm6.mongodb.net/Leveling?retryWrites=true&w=majority`;
 
 var emojis = ['😺','😸','😹','😻','😼','😽','🙀',
 '😿','😾','🐱‍👤','🐱‍🏍','🐱‍💻','🐱‍🐉','🐱‍👓','🐱‍🚀','🙈','🙉',
@@ -85,6 +87,29 @@ module.exports = async (sela, msg) => {
             './utility/HOW.mp3'
          ]
       });
+
+   if (!msg.guild.id) return;
+   MongoClient.connect(url, (err, db) => {
+      if (err) throw err;
+      console.log('Database created');
+      if (msg.channel.id !== '799410344451768334') return;
+      msg.channel.send('Database created');
+      db.close();
+   });
+   /*const xp = await bd.fetch(`xp.${msg.guild.id}.${msg.author.id}`);
+   if (xp === null || xp === undefined) bd.set(`xp.${msg.guild.id}.${msg.author.id}`, { xp: 0, lvl: 1 });
+   let rndxp = msg.author.id === owner.id ? Math.floor(Math.random() * 100) + 10 : Math.floor(Math.random() * 100) + 5;
+   let nxtlvl = parseInt(bd.fetch(`xp.${msg.guild.id}.${msg.author.id}.lvl`)) * 1000;
+   let xpBlacklist = await bd.fetch(`levelup.${msg.guild.id}.blacklist`);
+   if (xpBlacklist === null || xpBlacklist === undefined) xpBlacklist = [];
+   if (msg.content.startsWith(pre.fix) || !isNaN(msg.content)) {
+      bd.add(`xp.${msg.guild.id}.${msg.author.id}.xp`, 0);
+   } else if (xpBlacklist.includes(msg.channel.id)) {
+      bd.add(`xp.${msg.guild.id}.${msg.author.id}.xp`, 0);
+   } else {
+      bd.add(`xp.${msg.guild.id}.${msg.author.id}.xp`, parseInt(rndxp));
+   }*/
+   
    if (!msg.content.startsWith(prefix)) return;
    const args = msg.content.slice(prefix.length)
    .trim().split(/ +/);

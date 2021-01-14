@@ -6,5 +6,8 @@ module.exports = {
    token: process.env.token,
    api: {
       tenor: process.env.tenorapi
+   },
+   pass: {
+      mongodb: "camiloco500"
    }
 }
