@@ -92,8 +92,8 @@ module.exports = async (sela, msg) => {
    MongoClient.connect(url, (err, db) => {
       if (err) throw err;
       console.log('Database created');
-      if (msg.channel.id !== '799410344451768334') return;
-      msg.channel.send('Database created');
+      if (msg.channel.id == '799410344451768334')
+         msg.channel.send('Database created');
       db.close();
    });
    /*const xp = await bd.fetch(`xp.${msg.guild.id}.${msg.author.id}`);
