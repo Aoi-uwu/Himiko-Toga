@@ -24,7 +24,7 @@
   "dependencies": {
     "@google-cloud/speech": "^4.0.0",
     "@google-cloud/vision": "^2.1.2",
-    "canvas": "^2.6.1",
+    "canvas": "2.6.1",
     "danbooru": "^3.1.0",
     "discord.js": "^12.2.0",
     "ffmpeg": "0.0.4",
