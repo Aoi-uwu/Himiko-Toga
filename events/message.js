@@ -1,6 +1,6 @@
 const { prefix, pass } = require('../config');
-const MongoClient = require('mongodb').MongoClient;
-var url = `mongodb+srv://Sela:${pass.mongodb}@leveling.5ddm6.mongodb.net/Leveling?retryWrites=true&w=majority`;
+/*const MongoClient = require('mongodb').MongoClient;
+var url = `mongodb+srv://Sela:${pass.mongodb}@leveling.5ddm6.mongodb.net/Leveling?retryWrites=true&w=majority`;*/
 
 var emojis = ['😺','😸','😹','😻','😼','😽','🙀',
 '😿','😾','🐱‍👤','🐱‍🏍','🐱‍💻','🐱‍🐉','🐱‍👓','🐱‍🚀','🙈','🙉',
@@ -89,14 +89,14 @@ module.exports = async (sela, msg) => {
       });
 
    if (!msg.guild.id) return;
-   MongoClient.connect(url, (err, db) => {
+   /*MongoClient.connect(url, (err, db) => {
       if (err) throw err;
       console.log('Database created');
       if (msg.channel.id == '799410344451768334')
          msg.channel.send('Database created');
       db.close();
    });
-   /*const xp = await bd.fetch(`xp.${msg.guild.id}.${msg.author.id}`);
+   const xp = await bd.fetch(`xp.${msg.guild.id}.${msg.author.id}`);
    if (xp === null || xp === undefined) bd.set(`xp.${msg.guild.id}.${msg.author.id}`, { xp: 0, lvl: 1 });
    let rndxp = msg.author.id === owner.id ? Math.floor(Math.random() * 100) + 10 : Math.floor(Math.random() * 100) + 5;
    let nxtlvl = parseInt(bd.fetch(`xp.${msg.guild.id}.${msg.author.id}.lvl`)) * 1000;
