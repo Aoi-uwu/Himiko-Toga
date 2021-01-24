@@ -30,7 +30,6 @@
     "ffmpeg-binaries": "^3.2.2-3",
     "ffmpeg-static": "^4.2.5",
     "google-tts-api": "^2.0.1",
-    "mongodb": "^3.5.9",
     "node-fetch": "^2.6.0",
     "node-opus": "^0.3.3",
     "opusscript": "0.0.7",
