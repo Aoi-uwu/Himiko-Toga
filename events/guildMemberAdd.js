@@ -3,7 +3,7 @@ registerFont('./utility/fonts/JushleyShine.otf', { family: 'Cute Fonts' });
 const canvas = createCanvas(1920, 540);
 const ctx = canvas.getContext('2d');
 
-module.exports = async (sela, member) => {
+module.exports = async (sela, member) => {/*
    if (member.guild.id !== '391824350690672640') return;
    channel = sela.channels.cache.get('606551048362131467');
    ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -46,5 +46,5 @@ module.exports = async (sela, member) => {
             });
          });
       });
-   });
+   });*/
 }

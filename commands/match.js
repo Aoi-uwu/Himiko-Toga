@@ -1,6 +1,6 @@
-const { createCanvas, loadImage } = require('canvas');
+/*const { createCanvas, loadImage } = require('canvas');
 const canvas = createCanvas(3000, 1500);
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');*/
 const { prefix } = require('../config');
 
 module.exports = {
@@ -11,6 +11,7 @@ module.exports = {
    perms: [],
    desc: `Haz match con cualquier miembro del servidor.`,
    run: async (sela, msg, args) => {
+      return msg.channel.send('Amm... Lo siento, pero uno de los módulos necesarios para este comando no está funcionando.');
       if (!args[0]) {
          let me = msg.author.username;
          let meA = msg.member.nickname || me;
