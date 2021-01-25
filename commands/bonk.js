@@ -26,7 +26,7 @@ module.exports = {
       msg.channel.send({
          embed: embed,
          files: [
-            './utility/HOW.mp3'
+            './utility/bonk.mp3'
          ]
       });
    }
