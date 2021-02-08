@@ -11,7 +11,6 @@ module.exports = {
    perms: [],
    desc: `Haz match con cualquier miembro del servidor.`,
    run: async (sela, msg, args) => {
-      return msg.channel.send('Amm... Lo siento, pero uno de los módulos necesarios para este comando no está funcionando.');
       if (!args[0]) {
          let me = msg.author.username;
          let meA = msg.member.nickname || me;
