@@ -51,13 +51,13 @@ module.exports = async (sela, msg) => {
       for (let i = 0; i < emojis.length; i++) {
          if (msg.content.includes(emojis[i])) {
             msg.delete();
-            await msg.reply('aquí no.');
-            await msg.channel.send('<a:fastomop:727881429383380993>');
+            await msg.reply('Aquí no.');
+            await msg.channel.send('<a:fastomop:1026986514560852019>');
             break;
          }
       }
    }
-   if (msg.content == `<@!${sela.user.id}>`) {
+   if (msg.mentions.users.first() == sela.user) {
       var say = [
          'Nani?', `Holi, ${msg.author}.`,
          `${msg.author}`, '¿Por qué me mencionas? Sabes que no te puedo contestar.',
@@ -68,9 +68,8 @@ module.exports = async (sela, msg) => {
       if (Math.floor(Math.random() * 2) == 0) {
 
       } else {
-         msg.channel.startTyping();
+         msg.channel.sendTyping();
          setTimeout(() => {
-            msg.channel.stopTyping();
             msg.channel.send(say[Math.floor(Math.random() * say.length)]);
          }, 1000);
       }

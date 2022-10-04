@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 module.exports = {
    owner: {
-      id: "474204150511697923"
+      id: "873726976760889495"
    },
    prefix: "~",
-   token: process.env.token,
+   token: process.env.TOKEN,
    api: {
       tenor: process.env.tenorapi
    },
