@@ -118,6 +118,6 @@ module.exports = async (sela, msg) => {
       sela.commands.get(cmdName);
    if (!cmd)
       return msg.channel.send('Revisa que hayas escrito bien el comando que querías.')
-      .then(m => m.delete({timeout: 2500}));
+      .then(m => m.delete({timeout: 5000}));
    if (cmd) cmd.run(sela, msg, args);
 }

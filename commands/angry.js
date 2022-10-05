@@ -1,6 +1,7 @@
-const { EmbedBuilder } = require('discord.js');
-const { prefix, api } = require('../config');
-const fetch = require('node-fetch');
+const { EmbedBuilder } = require('discord.js')
+const { prefix, api } = require('../config')
+const fetch = require('node-fetch')
+const rndColor = require('../utility/rndColor')
 
 module.exports = {
    name: 'angry',
@@ -15,11 +16,9 @@ module.exports = {
          .then(res => res.json())
          .then(data => {
             var img = data.results[Math.floor(Math.random() *
-               data.results.length)].media[0].gif.url;
-            var color = msg.member.displayHexColor === '#000000' ?
-               '#66C0E8' : [msg.member.displayHexColor, '#66C0E8'][
-               Math.floor(Math.random() * 2)
-               ];
+               data.results.length)].media[0].gif.url
+            var color = msg.member.displayHexColor === '#000000' || msg.member.displayHexColor === '#FFFFFF' ?
+               rndColor() : msg.member.displayHexColor
             const embed = new EmbedBuilder()
                .setAuthor({
                   name: `${msg.author.username} está enojad@.`,
@@ -30,8 +29,8 @@ module.exports = {
                   })
                })
                .setImage(img)
-               .setColor(color);
-            msg.reply({ embeds: [embed], allowedMentions: { repliedUser: false } })//.then(m => m.delete());
-         });
+               .setColor(color)
+            msg.reply({ embeds: [embed], allowedMentions: { repliedUser: false } })
+         })
    }
 }

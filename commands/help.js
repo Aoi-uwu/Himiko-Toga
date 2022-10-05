@@ -20,7 +20,7 @@ module.exports = {
    }
 }
 
-function help(sela, msg, dm=true) {
+function help(sela, msg, dm = true) {
    chunk(sela.commands.map(c => c.name), 5)
       .then(arr => {
          const embed = new EmbedBuilder()
@@ -34,7 +34,7 @@ function help(sela, msg, dm=true) {
             })
             .setTitle('Lista de comandos')
             .setColor(msg.member.displayHexColor === '#000000' ?
-               msg.guild.me.displayHexColor : msg.member.displayHexColor);
+               msg.guild.members.me.displayHexColor : msg.member.displayHexColor);
          for (let i = 0; i < arr.length; i++) {
             embed.addFields({
                name: `${msg.guild.emojis.cache.filter(e => e.available).random()}`,
@@ -61,18 +61,20 @@ function help(sela, msg, dm=true) {
 
 function helpCMD(sela, msg, args, dm = true) {
    if (!sela.commands.get(args[0].toLowerCase()))
-      return msg.reply(`no encontré ningún comando con ese nombre.`);
+      return msg.reply(`No encontré ningún comando con ese nombre.`);
    const cmd = sela.commands.get(args[0].toLowerCase());
    const embed = new EmbedBuilder()
-      .setFooter(`[] - Opcional, <> - Requerido`,
-         sela.user.displayAvatarURL({
+      .setFooter({
+         text: `[] - Opcional, <> - Requerido`,
+         iconURL: sela.user.displayAvatarURL({
             format: 'png',
             dynamic: true,
             size: 2048
-         }))
+         })
+      })
       .setTitle(`Comando **${cmd.name}**`)
       .setColor(msg.member.displayHexColor === '#000000' ?
-         msg.guild.me.displayHexColor : msg.member.displayHexColor)
+         msg.guild.members.me.displayHexColor : msg.member.displayHexColor)
       .setDescription(`
       **Nombre:** ${cmd.name}
       **Alias:** ${cmd.alias.length == 0 ? 'No tiene' : cmd.alias}
@@ -84,16 +86,18 @@ function helpCMD(sela, msg, args, dm = true) {
             `${cmd.perms.map(p => `-> ${p}`).join('\n')}\n` +
             `\`\`\``
          }
-   `).setAuthor(msg.author.username,
-            msg.author.displayAvatarURL({
+   `).setAuthor({
+            name: msg.author.username,
+            iconURL: msg.author.displayAvatarURL({
                format: 'png',
                dynamic: true,
                size: 2048
-            }));
+            })
+         });
    if (dm) {
-      msg.reply('mira tus DM\'s.');
-      msg.author.send(embed);
+      msg.reply('Mira tus DM\'s.');
+      msg.author.send({ embeds: [embed] });
       return;
    }
-   msg.channel.send(embed);
+   msg.channel.send({ embeds: [embed] });
 }
