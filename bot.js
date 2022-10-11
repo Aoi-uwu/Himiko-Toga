@@ -1,4 +1,5 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js')
+const fs = require('fs')
 const sela = new Client({
    intents: [
       GatewayIntentBits.Guilds,
@@ -18,11 +19,19 @@ const sela = new Client({
       GatewayIntentBits.DirectMessageReactions,
       GatewayIntentBits.DirectMessageTyping
    ]
-});
-const { token } = require('./config');
+})
 
-require('./cmdHandler')(sela);
+sela.sCommands = new Collection()
+const cmdFiles = fs.readdirSync('./commands/slash/').filter(file => file.endsWith('.js'))
+for (const file of cmdFiles) {
+   const command = require(`./commands/slash/${file}`)
+   sela.sCommands.set(command.data.name, command)
+}
 
-require('./eventHandler')(sela);
+const { token } = require('./config')
 
-sela.login(token);
+require('./cmdHandler')(sela)
+
+require('./eventHandler')(sela)
+
+sela.login(token)
