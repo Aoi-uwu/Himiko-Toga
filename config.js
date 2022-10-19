@@ -13,5 +13,5 @@ module.exports = {
       mongodb: "camiloco500"
    },
    clientId: "1029080736222957599",
-   guildId: "1029068205584556134"
+   guildId: "391824350690672640"
 }
