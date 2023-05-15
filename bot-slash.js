@@ -1,5 +1,5 @@
 const { REST, Routes } = require('discord.js')
-const { clientId, guildId } = require('./config')
+const { clientId } = require('./config')
 const { readdirSync } = require('fs')
 require('dotenv').config()
 
@@ -13,6 +13,6 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN)
 
-rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+rest.put(Routes.applicationCommands(clientId), { body: commands })
 	.then((data) => console.log(`Successfully registered ${data.length} application commands.`))
 	.catch(console.error)
