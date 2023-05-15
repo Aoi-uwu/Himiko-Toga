@@ -21,6 +21,8 @@ const sela = new Client({
    ]
 })
 
+// comentario
+
 sela.sCommands = new Collection()
 const cmdFiles = fs.readdirSync('./commands/slash/').filter(file => file.endsWith('.js'))
 for (const file of cmdFiles) {
