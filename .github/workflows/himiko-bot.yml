@@ -16,8 +16,11 @@ jobs:
       - name: Instalar dependencias
         run: npm i  # Instala las dependencias del proyecto
 
-      - name: Ejecutar bot de Discord
+      - name: Actualizar comandos
         env:
           TOKEN: ${{ secrets.TOKEN }}
           tenorapi: ${{ secrets.TENORAPI }}
+        run: node bot-slash.js
+
+      - name: Ejecutar bot de Discord
         run: node bot.js  # Reemplaza "index.js" con el nombre del archivo principal de tu bot
