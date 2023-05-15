@@ -3,7 +3,7 @@ name: Ejecutar Bot de Discord
 on:
   push:
     branches:
-      - main  # Desencadena el flujo de trabajo cuando se realiza un push a la rama principal
+      - master  # Desencadena el flujo de trabajo cuando se realiza un push a la rama principal
 
 jobs:
   build:
