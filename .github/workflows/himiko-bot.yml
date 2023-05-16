@@ -19,8 +19,10 @@ jobs:
       - name: Actualizar comandos
         env:
           TOKEN: ${{ secrets.TOKEN }}
-          tenorapi: ${{ secrets.TENORAPI }}
         run: node bot-slash.js
 
       - name: Ejecutar bot de Discord
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          tenorapi: ${{ secrets.TENORAPI }}
         run: node bot.js  # Reemplaza "index.js" con el nombre del archivo principal de tu bot
