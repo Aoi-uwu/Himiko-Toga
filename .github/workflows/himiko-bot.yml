@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout del código fuente
-        uses: actions/checkout@v2  # Clona el repositorio en el entorno de ejecución
+        uses: actions/checkout@v3  # Clona el repositorio en el entorno de ejecución
 
       - name: Instalar dependencias
         run: npm i  # Instala las dependencias del proyecto
