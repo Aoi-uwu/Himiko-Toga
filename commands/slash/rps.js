@@ -26,7 +26,7 @@ module.exports = {
                .setLabel('✌️')
                .setStyle(ButtonStyle.Success))
          var embed = new EmbedBuilder()
-            .setThumbnail('https://imgur.com/v33gAdC.png')
+            .setThumbnail('https://i.ibb.co/1TvvcTn/mini-miku.png')
             .setAuthor({
                name: sela.user.username,
                iconURL: sela.user.displayAvatarURL()
@@ -59,15 +59,15 @@ module.exports = {
                .setDisabled(true))
 
          collector.on('collect', async i => {
-            var botPlay = ['🪨', '🧻', '✂️']
+            var botPlay = ['💎', '🧻', '✂️']
             var selected = botPlay[Math.floor(Math.random() * botPlay.length)]
             console.log(selected)
-            if (selected == '🪨') {
+            if (selected == '💎') {
                if (i.customId == 'rock') {
                   embed.setTitle('Empate. o.o')
-                     .setDescription('🪨 vs ✊')
+                     .setDescription('💎 vs ✊')
                      .setThumbnail(null)
-                     .setImage('https://media1.tenor.com/images/25f1a2e222ddce06074de1e0bda7eb81/tenor.gif?itemid=16697440')
+                     .setImage('https://i.ibb.co/f4wvbrb/serious-miku.gif')
                      .setColor('#FDFA9C')
                      .setFooter({
                         text: i.user.username,
@@ -75,9 +75,9 @@ module.exports = {
                      })
                } else if (i.customId == 'paper') {
                   embed.setTitle('Perdí... u.u')
-                     .setDescription('🪨 vs ✋')
+                     .setDescription('💎 vs ✋')
                      .setThumbnail(null)
-                     .setImage('https://media.tenor.com/images/c73f0f7cd272f163459200fbcd50a6ce/tenor.gif')
+                     .setImage('https://i.ibb.co/Y8Gmjwd/angry-miku.gif')
                      .setColor('#FF7D7D')
                      .setFooter({
                         text: i.user.username,
@@ -85,9 +85,9 @@ module.exports = {
                      })
                } else {
                   embed.setTitle('¡Gané! >u<')
-                     .setDescription('🪨 vs ✌️')
+                     .setDescription('💎 vs ✌️')
                      .setThumbnail(null)
-                     .setImage('https://pa1.narvii.com/7021/8d03ec014af915f935edd54491047c8c0bffd1c9r1-600-338_00.gif')
+                     .setImage('https://i.ibb.co/MPTphXZ/winner-miku.gif')
                      .setColor('#9CFD9F')
                      .setFooter({
                         text: i.user.username,
@@ -99,7 +99,7 @@ module.exports = {
                   embed.setTitle('Empate. o.o')
                      .setDescription('🧻 vs ✋')
                      .setThumbnail(null)
-                     .setImage('https://media1.tenor.com/images/25f1a2e222ddce06074de1e0bda7eb81/tenor.gif?itemid=16697440')
+                     .setImage('https://i.ibb.co/f4wvbrb/serious-miku.gif')
                      .setColor('#FDFA9C')
                      .setFooter({
                         text: i.user.username,
@@ -109,7 +109,7 @@ module.exports = {
                   embed.setTitle('Perdí... u.u')
                      .setDescription('🧻 vs ✌️')
                      .setThumbnail(null)
-                     .setImage('https://media.tenor.com/images/c73f0f7cd272f163459200fbcd50a6ce/tenor.gif')
+                     .setImage('https://i.ibb.co/Y8Gmjwd/angry-miku.gif')
                      .setColor('#FF7D7D')
                      .setFooter({
                         text: i.user.username,
@@ -119,7 +119,7 @@ module.exports = {
                   embed.setTitle('¡Gané! >u<')
                      .setDescription('🧻 vs ✊')
                      .setThumbnail(null)
-                     .setImage('https://pa1.narvii.com/7021/8d03ec014af915f935edd54491047c8c0bffd1c9r1-600-338_00.gif')
+                     .setImage('https://i.ibb.co/MPTphXZ/winner-miku.gif')
                      .setColor('#9CFD9F')
                      .setFooter({
                         text: i.user.username,
@@ -131,7 +131,7 @@ module.exports = {
                   embed.setTitle('Empate. o.o')
                      .setDescription('✂️ vs ✌️')
                      .setThumbnail(null)
-                     .setImage('https://media1.tenor.com/images/25f1a2e222ddce06074de1e0bda7eb81/tenor.gif?itemid=16697440')
+                     .setImage('https://i.ibb.co/f4wvbrb/serious-miku.gif')
                      .setColor('#FDFA9C')
                      .setFooter({
                         text: i.user.username,
@@ -141,7 +141,7 @@ module.exports = {
                   embed.setTitle('Perdí... u.u')
                      .setDescription('✂️ vs ✊')
                      .setThumbnail(null)
-                     .setImage('https://media.tenor.com/images/c73f0f7cd272f163459200fbcd50a6ce/tenor.gif')
+                     .setImage('https://i.ibb.co/Y8Gmjwd/angry-miku.gif')
                      .setColor('#FF7D7D')
                      .setFooter({
                         text: i.user.username,
@@ -151,7 +151,7 @@ module.exports = {
                   embed.setTitle('¡Gané! >u<')
                      .setDescription('✂️ vs ✋')
                      .setThumbnail(null)
-                     .setImage('https://pa1.narvii.com/7021/8d03ec014af915f935edd54491047c8c0bffd1c9r1-600-338_00.gif')
+                     .setImage('https://i.ibb.co/MPTphXZ/winner-miku.gif')
                      .setColor('#9CFD9F')
                      .setFooter({
                         text: i.user.username,

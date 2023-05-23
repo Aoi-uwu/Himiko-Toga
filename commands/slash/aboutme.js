@@ -25,7 +25,7 @@ module.exports = {
          })
          .setDescription(about)
          .setColor(interaction.member.displayHexColor === '#000000' ? rndColor() : interaction.member.displayHexColor)
-         .setImage('https://thumbs.gfycat.com/DownrightFemaleBobolink-small.gif')
+         .setImage('https://i.ibb.co/FhS3ZXy/happy-miku.gif')
          .setTimestamp()
       interaction.reply({ embeds: [embed], ephemeral: true })
    },
