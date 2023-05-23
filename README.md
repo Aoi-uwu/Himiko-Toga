@@ -1,2 +1,2 @@
-# Himiko Toga
-Himiko bot
+# Hatsune Miku
+Miku bot
